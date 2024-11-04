@@ -1,14 +1,16 @@
-# Full-stack assignment
+# Full-stack assignment - Frontend
 
 Design System Component - focussed on converting a design into a reusable component.
 
-## Available Scripts
+## Install
 
 In the project directory, you run:
 
 ### `npm install`
 
 To install packages
+
+## Available Scripts
 
 ### `npm run storybook`
 
