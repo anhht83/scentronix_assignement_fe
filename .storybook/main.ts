@@ -1,19 +1,19 @@
 const config = {
-  stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
+  stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
   addons: [
-    "@storybook/preset-create-react-app",
-    "@storybook/addon-onboarding",
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@chromatic-com/storybook",
-    "@storybook/addon-interactions",
-    "@storybook/addon-themes"
+    '@storybook/preset-create-react-app',
+    '@storybook/addon-onboarding',
+    '@storybook/addon-links',
+    '@storybook/addon-essentials',
+    '@chromatic-com/storybook',
+    '@storybook/addon-interactions',
+    '@storybook/addon-themes',
   ],
   framework: {
-    name: "@storybook/react-webpack5",
+    name: '@storybook/react-webpack5',
     options: {},
   },
-  staticDirs: ["../public"],
+  staticDirs: ['../public'],
   typescript: {
     reactDocgen: 'react-docgen-typescript',
     reactDocgenTypescriptOptions: {
@@ -27,10 +27,7 @@ const config = {
       // Makes string and boolean types that can be undefined appear as inputs and switches
       shouldRemoveUndefinedFromOptional: true,
       // Filter out third-party props from node_modules except @mui packages
-      propFilter: (prop) =>
-        prop.parent
-          ? !/node_modules\/(?!@mui)/.test(prop.parent.fileName)
-          : true,
+      propFilter: (prop: any) => (prop.parent ? !/node_modules\/(?!@mui)/.test(prop.parent.fileName) : true),
     },
   },
 };

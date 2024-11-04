@@ -9,7 +9,7 @@ export interface ProductProps {
   icon?: React.ReactNode;
   description?: string;
   tags?: React.ReactNode[];
-  sx?: SxProps<Theme>
+  sx?: SxProps<Theme>;
 }
 
 const StyledProduct = styled(MuiButton)(({ theme }) => ({
@@ -60,27 +60,25 @@ const StyledProductTag = styled(MuiChip)(({ theme }) => ({
   },
 }));
 
-export const Product = (
-  {
-    currency = '€',
-    text = '',
-    icon = <MdOutlineAddShoppingCart />,
-    price,
-    description,
-    tags = [],
-    sx
-  }: ProductProps) => (
+export const Product = ({
+  currency = '€',
+  text = '',
+  icon = <MdOutlineAddShoppingCart />,
+  price,
+  description,
+  tags = [],
+  sx,
+}: ProductProps) => (
   <StyledProduct sx={sx}>
     <StyledProductWrapText>
       {icon}
       <StyledProductText>{text}</StyledProductText>
-      <StyledProductPrice>{currency}{price}</StyledProductPrice>
+      <StyledProductPrice>
+        {currency}
+        {price}
+      </StyledProductPrice>
     </StyledProductWrapText>
-    {description && (
-      <StyledProductDescription>
-        {description}
-      </StyledProductDescription>
-    )}
+    {description && <StyledProductDescription>{description}</StyledProductDescription>}
     {!!tags?.length && (
       <MuiStack direction="row" spacing={1} marginTop={2}>
         {tags.map((tag, index) => (

@@ -4,7 +4,7 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import '@fontsource/material-icons';
 
-import type { Preview } from "@storybook/react";
+import type { Preview } from '@storybook/react';
 
 import { ThemeProvider, CssBaseline } from '@mui/material';
 import { withThemeFromJSXProvider } from '@storybook/addon-themes';
@@ -22,14 +22,16 @@ const preview: Preview = {
     },
   },
 
-  decorators: [withThemeFromJSXProvider({
-    GlobalStyles: CssBaseline,
-    Provider: ThemeProvider,
-    themes: {
-      default: defaultTheme,
-    },
-    defaultTheme: 'light',
-  })]
+  decorators: [
+    withThemeFromJSXProvider({
+      GlobalStyles: CssBaseline,
+      Provider: ThemeProvider,
+      themes: {
+        default: defaultTheme,
+      },
+      defaultTheme: 'light',
+    }),
+  ],
 };
 
 export default preview;

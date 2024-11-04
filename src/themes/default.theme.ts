@@ -1,5 +1,5 @@
-import {createTheme, Theme, ThemeOptions} from '@mui/material';
-import {  } from '@mui/material/colors';
+import { createTheme, Theme, ThemeOptions } from '@mui/material';
+import {} from '@mui/material/colors';
 
 export const defaultThemeOptions: ThemeOptions = {
   palette: {
@@ -10,8 +10,7 @@ export const defaultThemeOptions: ThemeOptions = {
       contrastText: '#fff',
     },
   },
-  spacing: 8
+  spacing: 8,
 };
 
 export const defaultTheme: Theme = createTheme(defaultThemeOptions);
-

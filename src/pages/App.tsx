@@ -3,18 +3,17 @@ import { ToggleButton, Product, Popper } from '../components';
 import { MdOutlineAddShoppingCart } from 'react-icons/md';
 
 type TProduct = {
-  text: string,
-  price: number,
-  description?: string,
-  tags?: string[]
-}
+  text: string;
+  price: number;
+  description?: string;
+  tags?: string[];
+};
 
 type AppProps = {
-  products?: TProduct[]
-}
+  products?: TProduct[];
+};
 
 const App = ({ products }: AppProps) => {
-
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
 
   const open = Boolean(anchorEl);
@@ -48,31 +47,31 @@ const App = ({ products }: AppProps) => {
         startIcon={<MdOutlineAddShoppingCart />}
       />
 
-      <ToggleButton
-        onClick={handleToggle}
-        label="Buy"
-        startIcon={<MdOutlineAddShoppingCart />}
-      />
+      <ToggleButton onClick={handleToggle} label="Buy" startIcon={<MdOutlineAddShoppingCart />} />
       <Popper
-        sx={[(theme) => ({
-          margin: `${theme.spacing(0, 2)} !important`,
-          width: `calc(100% - ${theme.spacing(4 + 5 + 2)})`,
-          maxWidth: 300,
-        })]}
+        sx={[
+          (theme) => ({
+            margin: `${theme.spacing(0, 2)} !important`,
+            width: `calc(100% - ${theme.spacing(4 + 5 + 2)})`,
+            maxWidth: 300,
+          }),
+        ]}
         open={open}
         anchorEl={anchorEl}
         placement={'left'}
       >
-        {({ animate }) => (products || []).map((product, index) => (
-          <Product
-            key={index}
-            sx={{
-              transition: 'transform 0.4s ease',
-              transform: animate ? 'translateY(0)' : `translateY(${((products || []).length - index) * 10}px)`,
-            }}
-            {...product}
-          />
-        ))}
+        {({ animate }) =>
+          (products || []).map((product, index) => (
+            <Product
+              key={index}
+              sx={{
+                transition: 'transform 0.4s ease',
+                transform: animate ? 'translateY(0)' : `translateY(${((products || []).length - index) * 10}px)`,
+              }}
+              {...product}
+            />
+          ))
+        }
       </Popper>
     </>
   );

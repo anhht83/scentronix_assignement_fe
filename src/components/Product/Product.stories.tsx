@@ -1,4 +1,3 @@
-
 import type { Meta, StoryObj } from '@storybook/react';
 import { Product } from './Product';
 
@@ -13,7 +12,7 @@ export const Default: Story = {
   args: {
     text: 'Button text',
     price: 20,
-  }
+  },
 };
 
 export const DescriptionWithTags: Story = {
@@ -21,19 +20,19 @@ export const DescriptionWithTags: Story = {
     ...Default.args,
     description: 'An optional description',
     tags: ['Optional tag'],
-  }
+  },
 };
 
 export const DescriptionOnly: Story = {
   args: {
     ...Default.args,
     description: 'Description only',
-  }
+  },
 };
 
 export const TagsOnly: Story = {
   args: {
     ...Default.args,
-    tags: ['Tag','Only'],
-  }
+    tags: ['Tag', 'Only'],
+  },
 };

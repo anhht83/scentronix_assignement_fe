@@ -1,7 +1,8 @@
 import React, { useRef, useState } from 'react';
 import {
   Button as MuiButton,
-  ButtonProps as MuiButtonProps, Fade,
+  ButtonProps as MuiButtonProps,
+  Fade,
   IconButton as MuiIconButton,
   styled,
 } from '@mui/material';
@@ -41,15 +42,14 @@ const StyledToggleButton = styled(MuiButton)(({ theme }) => ({
   },
 }));
 
-export const ToggleButton = (
-  {
-    label = '',
-    variant = 'contained',
-    color = 'primary',
-    onClick,
-    startIcon,
-    sx,
-  }: ToggleButtonProps) => {
+export const ToggleButton = ({
+  label = '',
+  variant = 'contained',
+  color = 'primary',
+  onClick,
+  startIcon,
+  sx,
+}: ToggleButtonProps) => {
   const anchorRef: React.MutableRefObject<any> = useRef(null);
   const [toggle, setToggle] = useState(false);
 
@@ -60,9 +60,13 @@ export const ToggleButton = (
   };
 
   return (
-    <StyledWrapped sx={sx} >
+    <StyledWrapped sx={sx}>
       <StyledContent>
-        <Fade in={toggle}><StyledCloseButton ref={anchorRef} onClick={handleToggle}><IoClose /></StyledCloseButton></Fade>
+        <Fade in={toggle}>
+          <StyledCloseButton ref={anchorRef} onClick={handleToggle}>
+            <IoClose />
+          </StyledCloseButton>
+        </Fade>
         <Fade in={!toggle}>
           <StyledToggleButton onClick={handleToggle} variant={variant} color={color} startIcon={startIcon}>
             {label}

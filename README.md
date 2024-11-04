@@ -7,10 +7,9 @@ Design System Component - focussed on converting a design into a reusable compon
 In the project directory, you run:
 
 ### `npm install`
+
 To install packages
 
 ### `npm run storybook`
 
 Launches the storybook at http://localhost:6006
-
-

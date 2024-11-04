@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {
-  Backdrop as MuiBackdrop, Fade,
+  Backdrop as MuiBackdrop,
+  Fade,
   Popper as MuiPopper,
   PopperPlacementType as MuiPopperPlacementType,
   styled,
@@ -40,19 +41,11 @@ export const Popper = ({ open = false, anchorEl, placement = 'auto', sx, childre
 
   return (
     <StyledBackdrop open={open}>
-      <StyledPopper
-        open={open}
-        anchorEl={anchorEl}
-        placement={placement}
-        sx={sx}
-        transition
-      >
+      <StyledPopper open={open} anchorEl={anchorEl} placement={placement} sx={sx} transition>
         {({ TransitionProps }) => (
           <ClickAwayListener onClickAway={handleClickAway}>
             <Fade {...TransitionProps} timeout={200}>
-              <div>
-                {children?.({ animate })}
-              </div>
+              <div>{children?.({ animate })}</div>
             </Fade>
           </ClickAwayListener>
         )}
