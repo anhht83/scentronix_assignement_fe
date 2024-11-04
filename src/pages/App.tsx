@@ -19,7 +19,7 @@ const App = ({ products }: AppProps) => {
   const open = Boolean(anchorEl);
 
   // click on toggle button
-  const handleToggle = (toggleAnchorEl: HTMLElement, toggle: boolean) => {
+  const handleToggle = (toggleAnchorEl: HTMLElement | null, toggle: boolean) => {
     setAnchorEl(toggle ? toggleAnchorEl : null);
   };
 

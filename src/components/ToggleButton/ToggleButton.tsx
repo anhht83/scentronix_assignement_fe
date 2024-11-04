@@ -11,7 +11,7 @@ import { IoClose } from 'react-icons/io5';
 export interface ToggleButtonProps extends Pick<MuiButtonProps, 'startIcon' | 'variant' | 'color' | 'sx'> {
   toggle?: boolean;
   label?: string;
-  onClick?: (anchorEl: any, toggle: boolean) => void;
+  onClick?: (anchorEl: HTMLElement | null, toggle: boolean) => void;
 }
 
 const StyledWrapped = styled('div')(({ theme }) => ({
@@ -50,7 +50,7 @@ export const ToggleButton = ({
   startIcon,
   sx,
 }: ToggleButtonProps) => {
-  const anchorRef: React.MutableRefObject<any> = useRef(null);
+  const anchorRef = useRef(null);
   const [toggle, setToggle] = useState(false);
 
   const handleToggle = () => {
