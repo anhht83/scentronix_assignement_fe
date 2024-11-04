@@ -31,8 +31,8 @@
     "build-storybook": "storybook build",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "prettier": "prettier --ignore-path .gitignore --write \"./src/**/*.+(js|ts|json)\"",
-    "prettier:fix": "prettier --write src",
+    "prettier": "prettier --check .",
+    "prettier:fix": "prettier --write .",
     "prepare": "husky install"
   },
   "eslintConfig": {
@@ -69,6 +69,7 @@
     "@storybook/test": "^8.3.6",
     "eslint": "^8.57.1",
     "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-react": "^7.37.2",
     "eslint-plugin-storybook": "^0.10.1",
     "globals": "^15.11.0",
@@ -77,6 +78,8 @@
     "prettier": "^3.3.3",
     "prop-types": "^15.8.1",
     "storybook": "^8.3.6",
+    "tsc-alias": "^1.8.10",
+    "tsx": "^4.19.2",
     "typescript-eslint": "^8.12.2",
     "webpack": "^5.95.0"
   }
