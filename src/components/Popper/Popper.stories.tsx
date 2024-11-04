@@ -19,7 +19,7 @@ const meta: Meta<typeof Popper> = {
     return (
       <StyledWrapped>
         <div ref={ref}>anchorEl</div>
-        <Popper anchorRef={ref} {...args} />
+        <Popper anchorEl={ref?.current} {...args} />
       </StyledWrapped>
     );
   },

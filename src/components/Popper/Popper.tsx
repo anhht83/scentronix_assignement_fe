@@ -11,7 +11,7 @@ import ClickAwayListener from '@mui/material/ClickAwayListener';
 
 export interface PopperProps {
   open: boolean;
-  anchorRef?: React.MutableRefObject<any> | null;
+  anchorEl?: null | HTMLElement;
   sx?: SxProps<Theme>;
   placement?: MuiPopperPlacementType;
   children?: (props: {animate: boolean})=> React.ReactNode;
@@ -19,19 +19,19 @@ export interface PopperProps {
 
 
 const StyledBackdrop = styled(MuiBackdrop)(({ theme }) => ({
-  zIndex: theme.zIndex.drawer + 1,
+  zIndex: theme.zIndex.modal,
 }));
 
 const StyledPopper = styled(MuiPopper)(({ theme }) => ({
-  zIndex: theme.zIndex.drawer + 2,
+  zIndex: theme.zIndex.modal,
 }));
 
-export const Popper = ({ open, anchorRef, placement = 'auto', sx, children }: PopperProps) => {
+export const Popper = ({ open, anchorEl, placement = 'auto', sx, children }: PopperProps) => {
   const [animate, setAnimate] = useState(false);
 
   // handle click outside the Popper
   const handleClickAway = () => {
-    anchorRef?.current?.click();
+    anchorEl?.click();
   };
 
   // enable animation content inside Popper
@@ -48,7 +48,7 @@ export const Popper = ({ open, anchorRef, placement = 'auto', sx, children }: Po
     <StyledBackdrop open={open}>
       <StyledPopper
         open={open}
-        anchorEl={anchorRef?.current}
+        anchorEl={anchorEl}
         placement={placement}
         sx={sx}
         transition

@@ -15,13 +15,13 @@ type AppProps = {
 
 const App = ({ products }: AppProps) => {
 
-  const [anchorRef, setAnchorRef] = useState<React.MutableRefObject<any> | null>(null);
+  const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
 
-  const open = Boolean(anchorRef);
+  const open = Boolean(anchorEl);
 
   // click on toggle button
-  const handleToggle = (toggleAnchorEl: React.MutableRefObject<any>, toggle: boolean) => {
-    setAnchorRef(toggle ? toggleAnchorEl : null);
+  const handleToggle = (toggleAnchorEl: HTMLElement, toggle: boolean) => {
+    setAnchorEl(toggle ? toggleAnchorEl : null);
   };
 
   return (
@@ -60,7 +60,7 @@ const App = ({ products }: AppProps) => {
           maxWidth: 300,
         })]}
         open={open}
-        anchorRef={anchorRef}
+        anchorEl={anchorEl}
         placement={'left'}
       >
         {({ animate }) => (products || []).map((product, index) => (

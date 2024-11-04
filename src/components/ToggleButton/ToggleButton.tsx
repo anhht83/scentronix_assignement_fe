@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import {
   Button as MuiButton,
   ButtonProps as MuiButtonProps, Fade,
@@ -29,7 +29,7 @@ const StyledCloseButton = styled(MuiIconButton)(({ theme }) => ({
     color: theme.palette.primary.main,
     height: theme.spacing(5),
     backgroundColor: theme.palette.background.default,
-    zIndex: theme.zIndex.drawer + 4,
+    zIndex: theme.zIndex.modal + 1,
     position: 'absolute',
     right: 0,
   },
@@ -56,12 +56,8 @@ export const ToggleButton = (
   const handleToggle = () => {
     const newToggle = !toggle;
     setToggle(newToggle);
-    if (onClick) onClick(anchorRef, newToggle);
+    if (onClick) onClick(anchorRef.current, newToggle);
   };
-
-  useEffect(() => {
-    if(anchorRef?.current) anchorRef.current.onClick = handleToggle;
-  }, [anchorRef]);
 
   return (
     <StyledWrapped sx={sx} >
